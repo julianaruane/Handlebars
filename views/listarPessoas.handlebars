@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar pessoas</title>
+</head>
+
+<body>
+    <h1>Tela listar pessoas</h1>
+
+    <ul>
+        {{#each pessoas}} <!-- para cada pessoa irá execultar a ação dentro do bloco -->
+        <li><a href="/pessoas/{{id}}">
+                {{nome}}
+            </a>
+
+             <li><a href="/pessoas/{{id}}/editar">
+               editar
+            </a>
+      
+        <form action="/pessoas/excluir/{{id}}" method="POST" style="display:inline;">
+            <button type="submit" onclick="return confirm('Confirma exclusão?')">
+                excluir
+            </button>
+        </form>
+    </li>
+{{/each}}
+</ul>
+</body>
+</html>
